@@ -27,15 +27,11 @@ LABEL "Description"="Apereo CAS"
 
 RUN cd / \
     && mkdir -p /etc/cas/config \
-    && mkdir -p /etc/cas/services \
-    && mkdir -p /etc/cas/saml \
     && mkdir -p cas-overlay;
 
 COPY --from=overlay cas-overlay/build/libs/cas.war cas-overlay/
 COPY etc/cas/ /etc/cas/
 COPY etc/cas/config/ /etc/cas/config/
-COPY etc/cas/services/ /etc/cas/services/
-COPY etc/cas/saml/ /etc/cas/saml/
 
 EXPOSE 8080 8443
 
