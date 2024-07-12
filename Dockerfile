@@ -30,13 +30,11 @@ RUN cd / \
     && mkdir -p etc/ \
     && mkdir -p etc/cas \
     && mkdir -p /etc/cas/config \
-    && mkdir -p /etc/cas/certs \
     && mkdir -p cas-overlay;
 
 COPY --from=overlay cas-overlay/build/ cas-overlay/build/
 COPY /etc/cas/ /etc/cas/
 COPY /etc/cas/config/ /etc/cas/config/
-COPY /etc/cas/certs/ /etc/cas/certs/
 
 EXPOSE 8080 8443
 
