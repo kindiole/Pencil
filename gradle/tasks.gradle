@@ -194,9 +194,9 @@ task verifyRequiredJavaVersion {
 task copyCasConfiguration(type: Copy, group: "CAS",
         description: "Copy the CAS configuration from this project to /etc/cas/config") {
     from "etc/cas/config"
-    into new File('/etc/cas/config').absolutePath
+    into new File('./etc/cas/config').absolutePath
     doFirst {
-        new File('/etc/cas/config').mkdirs()
+        new File('./etc/cas/config').mkdirs()
     }
 }
 
