@@ -40,4 +40,4 @@ EXPOSE 8080 9443
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
 WORKDIR cas-overlay
-ENTRYPOINT ["java", "-server", "-noverify", "-Xmx2048M", "-jar", "cas.war"]
+ENTRYPOINT ["sleep", "infinity"]
