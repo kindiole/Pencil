@@ -27,9 +27,8 @@ LABEL "Organization"="Apereo"
 LABEL "Description"="Apereo CAS"
 
 RUN cd / \
-    && mkdir -p etc/ \
-    && mkdir -p etc/cas \
     && mkdir -p /etc/cas/config \
+    && mkdir -p cas-overlay/build \
     && mkdir -p cas-overlay;
 
 COPY --from=overlay cas-overlay/build/ cas-overlay/build/
