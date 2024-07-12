@@ -30,7 +30,7 @@ RUN cd / \
     && mkdir -p /etc/cas/certs \
     && mkdir -p cas-overlay;
 
-COPY --from=overlay cas-overlay/build/libs/cas.war cas-overlay/
+COPY --from=overlay cas-overlay/build cas-overlay/
 COPY etc/cas/ /etc/cas/
 COPY etc/cas/config/ /etc/cas/config/
 COPY etc/cas/certs /etc/cas/certs
@@ -40,4 +40,4 @@ EXPOSE 8080 9443
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
 WORKDIR cas-overlay
-ENTRYPOINT ["sleep", "infinity"]
+ENTRYPOINT ["java", "-server", "-noverify", "-Xmx2048M", "-jar", "cas.war"]
