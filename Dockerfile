@@ -28,8 +28,11 @@ LABEL "Description"="Apereo CAS"
 
 RUN cd / \
     && mkdir -p /etc/cas/config \
+    && mkdir -p cas-overlay \
     && mkdir -p /cas-overlay/build \
-    && mkdir -p cas-overlay;
+    && chmod -R 775 /cas-overlay/build;
+
+
 
 COPY --from=overlay cas-overlay/build/ cas-overlay/build/
 COPY /etc/cas/ /etc/cas/
