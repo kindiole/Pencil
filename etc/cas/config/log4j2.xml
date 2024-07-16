@@ -7,7 +7,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
 <Configuration monitorInterval="5" packages="org.apereo.cas.logging">
     <Properties>
         <Property name="baseDir">/cas-overlay/log</Property>
-        <Property name="cas.log.level">info</Property>
+        <Property name="cas.log.level">trace</Property>
         <Property name="spring.webflow.log.level">warn</Property>
         <Property name="spring.security.log.level">info</Property>
         <Property name="spring.cloud.log.level">warn</Property>
@@ -17,7 +17,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
         <Property name="pac4j.log.level">warn</Property>
         <Property name="opensaml.log.level">warn</Property>
         <Property name="hazelcast.log.level">warn</Property>
-        <Property name="jdbc.log.level">warn</Property>
+        <Property name="jdbc.log.level">trace</Property>
         <Property name="log.console.stacktraces">true</Property>
         <Property name="log.file.stacktraces">false</Property>
         <!-- -Dlog.stacktraceappender=null to disable stacktrace log -->

@@ -41,7 +41,7 @@ COPY --from=overlay cas-overlay/build/ cas-overlay/build/
 COPY /etc/cas/ /etc/cas/
 COPY /etc/cas/config/ /etc/cas/config/
 
-EXPOSE 8080 8443
+EXPOSE 8000 8443
 
 ENV PATH $PATH:$JAVA_HOME/bin:.
 
