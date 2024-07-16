@@ -7,7 +7,7 @@ WAR Overlay Type: `cas-overlay`
 # Versions
    
 
-- CAS Server `7.1.0-SNAPSHOT`
+- CAS Server `7.0.5.1`
 - JDK `21`
                      
 # Build

@@ -6,7 +6,8 @@ ARG EXT_BUILD_COMMANDS=""
 ARG EXT_BUILD_OPTIONS=""
 
 RUN mkdir -p cas-overlay \
-    && mkdir cas-overlay/build
+    && mkdir /cas-overlay/build \
+    && mkdir /cas-overlay/log
 COPY ./src cas-overlay/src/
 COPY ./gradle/ cas-overlay/gradle/
 COPY ./gradlew ./settings.gradle ./build.gradle ./gradle.properties ./lombok.config /cas-overlay/
@@ -30,7 +31,9 @@ RUN cd / \
     && mkdir -p /etc/cas/config \
     && mkdir -p cas-overlay \
     && mkdir -p /cas-overlay/build \
-    && chmod -R 775 /cas-overlay/build;
+    && mkdir -p /cas-overlay/log \
+    && chmod -R 775 /cas-overlay/build \
+    && chmod -R 777 /cas-overlay/log
 
 
 

@@ -114,7 +114,7 @@ bootWar {
             of non-war dependencies. Those should be excluded via normal gradle dependency exclusions.
         */
         cas {
-            from "org.apereo.cas:cas-server-webapp${project.appServer}:${project.'cas.version'}@war"
+            from "org.apereo.cas:cas-server-webapp${project.findProperty('appServer') ?: ''}:${project.'cas.version'}@war"
 
 
 

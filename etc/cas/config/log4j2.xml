@@ -6,7 +6,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
 <!-- Specify the refresh internal in seconds. -->
 <Configuration monitorInterval="5" packages="org.apereo.cas.logging">
     <Properties>
-        <Property name="baseDir">/var/log</Property>
+        <Property name="baseDir">/cas-overlay/log</Property>
         <Property name="cas.log.level">info</Property>
         <Property name="spring.webflow.log.level">warn</Property>
         <Property name="spring.security.log.level">info</Property>
@@ -116,7 +116,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
         <Logger name="org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration" level="${sys:spring.security.log.level}" />
         <Logger name="org.springframework.boot.autoconfigure.security" level="${sys:spring.security.log.level}" />
         <Logger name="org.springframework.boot.devtools" level="debug" />
-        
+
         <Logger name="org.springframework" level="warn" />
         <Logger name="org.springframework.webflow" level="${sys:spring.webflow.log.level}"/>
         <Logger name="org.springframework.aop" level="warn" />
@@ -131,7 +131,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
         <Logger name="org.springframework.integration" level="warn"/>
         <Logger name="org.springframework.messaging" level="warn"/>
         <Logger name="org.springframework.web" level="${sys:spring.web.log.level}"/>
-        
+
         <Logger name="org.springframework.scheduling" level="warn"/>
         <Logger name="org.springframework.context.annotation" level="off"/>
         <Logger name="org.springframework.web.socket" level="warn"/>
