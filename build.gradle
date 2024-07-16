@@ -283,8 +283,11 @@ dependencies {
      * plugin via the CAS bom.
      **/
     implementation "org.apereo.cas:cas-server-support-rest"
+    implementation "org.apereo.cas:cas-server-core-authentication-api"
+    implementation "org.apereo.cas:cas-server-core-api"
+    implementation "org.apereo.cas:cas-server-core-web-api"
+    implementation "org.apereo.cas:cas-server-core-util-api"
 
-    
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
 
