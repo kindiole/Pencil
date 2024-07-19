@@ -288,7 +288,7 @@ dependencies {
     implementation "org.apereo.cas:cas-server-core-web-api"
     implementation "org.apereo.cas:cas-server-core-util-api"
     implementation "org.apereo.cas:cas-server-support-jdbc"
-//    implementation "org.apereo.cas:cas-server-support-jpa-util"
+    implementation "org.apereo.cas:cas-server-support-jpa-util"
 
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
