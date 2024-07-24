@@ -16,7 +16,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
         <Property name="ldap.log.level">warn</Property>
         <Property name="pac4j.log.level">warn</Property>
         <Property name="opensaml.log.level">warn</Property>
-        <Property name="hazelcast.log.level">warn</Property>
+        <Property name="hazelcast.log.level">trace</Property>
         <Property name="jdbc.log.level">trace</Property>
         <Property name="log.console.stacktraces">true</Property>
         <Property name="log.file.stacktraces">false</Property>
@@ -28,7 +28,7 @@ Set -Dlog4j2.contextSelector=org.apache.logging.log4j.core.selector.BasicContext
         <Null name="null" />
 
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%highlight{%d %p [%c] - &lt;%m&gt;}%n" alwaysWriteExceptions="${sys:log.console.stacktraces}"/>
+            <PatternLayout pattern="%highlight{%d %p [%t] [%c] - &lt;%m&gt;%n}{FATAL=red blink, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=white}" alwaysWriteExceptions="${sys:log.console.stacktraces}"/>
         </Console>
 
         <RollingFile name="file" fileName="${baseDir}/cas.log" append="true"

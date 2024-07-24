@@ -1,14 +1,58 @@
 version: '3'
 services:
-  cas:
+  hazelcast-mancenter:
+    image: hazelcast/management-center:latest
+    container_name: Hazelcast-mancenter
+    ports:
+      - "8001:8080"
+
+  cas1:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - SERVER_PORT=8443
+      - PUBLIC_ADDRESS=cas1:40001
     ports:
      - "8443:8443"
      - "8000:8080"
+     - "40001:40001"
     restart: always
-    container_name: CAS-Template
+    container_name: cas1
+    networks:
+      - cas-network
+
+  cas2:
+    build:
+      context: .
+      dockerfile: deployments/cas2/Dockerfile
+    environment:
+      - SERVER_PORT=9443
+      - PUBLIC_ADDRESS=cas2:40002
+    ports:
+      - "9443:9443"
+      - "9080:8080"
+      - "40002:40002"
+    restart: always
+    container_name: cas2
+    networks:
+      - cas-network
+
+  cas3:
+    build:
+      context: .
+      dockerfile: deployments/cas3/Dockerfile
+    environment:
+      - SERVER_PORT=10443
+      - PUBLIC_ADDRESS=cas3:40003
+    ports:
+      - "10443:10443"
+      - "10080:8080"
+      - "40003:40003"
+    restart: always
+    container_name: cas3
+    networks:
+      - cas-network
 
   database:
     image: postgres:15
@@ -22,8 +66,13 @@ services:
       - db-data:/var/lib/postgresql/data
     restart: always
     container_name: CAS-Database
+    networks:
+      - cas-network
 
 volumes:
   db-data:
+
+networks:
+  cas-network:
 
 

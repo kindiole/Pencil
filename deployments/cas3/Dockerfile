@@ -8,9 +8,9 @@ ARG EXT_BUILD_OPTIONS=""
 RUN mkdir -p cas-overlay \
     && mkdir /cas-overlay/build \
     && mkdir /cas-overlay/log
-COPY src cas-overlay/src/
-COPY gradle cas-overlay/gradle/
-COPY gradlew ./settings.gradle ./build.gradle ./gradle.properties ./lombok.config /cas-overlay/
+COPY ../../src cas-overlay/src/
+COPY ../../gradle cas-overlay/gradle/
+COPY ../../gradlew ./settings.gradle ./build.gradle ./gradle.properties ./lombok.config /cas-overlay/
 
 RUN mkdir -p ~/.gradle \
     && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties \
@@ -41,7 +41,7 @@ COPY --from=overlay cas-overlay/build/ cas-overlay/build/
 COPY /etc/cas /etc/cas/
 COPY /etc/cas/config /etc/cas/config/
 
-EXPOSE 8080 8443 5701
+EXPOSE 8080 10443 5701 40003
 
 ENV PATH=$PATH:$JAVA_HOME/bin:.
 
