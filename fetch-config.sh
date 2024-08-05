@@ -8,7 +8,7 @@ CP_DIR="/tmp/config/etc/cas/config"
 
 echo "Cloning from branch: $GIT_BRANCH of repo: $GIT_REPO_URL"
 
-git clone --branch "$GIT_BRANCH" "https://oauth2:$ACCESS_TOKEN@$GIT_REPO_URL" "$CLONE_DIR"
+git -c http.sslVerify=false clone --branch "$GIT_BRANCH" "https://oauth2:$ACCESS_TOKEN@$GIT_REPO_URL" "$CLONE_DIR"
 
 if [ -f "$CLONE_DIR/log4j2.xml" ] && [ -f "$CLONE_DIR/cas.properties" ]; then
     cp "$CP_DIR/log4j2.xml" /etc/cas/config/log4j2.xml
